@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" href="/css/userprofile.css">
+    </head>
+<body>
+<p><%= user.name%> </p>
+<p> <%= user.email%> </p>
+<form action="/post/create-post" id="new-post-form"method="POST">
+    <textarea name="content" rows="3" cols="20"></textarea>
+    <input type="submit" value="post">
+</form>
+<h4>
+    Post
+</h4>
+<div id="post-list-cont">
+<ol>
+    <% for(post of posts) {%>
+        <%- include('_post');%>
+    <%}%>
+</ol>
+</div>
+<section>
+    <h3>Friends</h3>
+    <% for(u of users_all) {%>
+        <p>
+            <a href="/<%=u.id%>"><%=u.name%></a>
+        </p>
+    <%}%>
+</section>
+<script src="/js/homepost.js"></script>
+</body>
+
+</html> 
